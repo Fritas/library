@@ -6,3 +6,6 @@
 .idea/
 out/
 local.properties
+# IDEA Adriano#
+.vscode/
+venv/
