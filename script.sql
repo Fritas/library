@@ -7,7 +7,7 @@ CREATE TABLE book (
 	cod_book INT PRIMARY KEY AUTO_INCREMENT,
     ISBN_10 CHAR(10) UNIQUE,
     ISBN_13 CHAR(14) UNIQUE,
-    title_english VARCHAR(50),
+    title_original VARCHAR(50),
     title_portuguese VARCHAR(50)	
 );
 
