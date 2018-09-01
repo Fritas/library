@@ -4,9 +4,11 @@ USE library;
 
 -- livro
 CREATE TABLE book (
-	ISBN INT PRIMARY KEY,
+	cod_book INT PRIMARY KEY AUTO_INCREMENT,
+    ISBN_10 CHAR(10) UNIQUE,
+    ISBN_13 CHAR(14) UNIQUE,
     title_english VARCHAR(50),
-    title_portuguese VARCHAR(50)
+    title_portuguese VARCHAR(50)	
 );
 
 -- editora
@@ -19,16 +21,13 @@ CREATE TABLE publisher (
 CREATE TABLE person (
 	cod_person INT PRIMARY KEY AUTO_INCREMENT,
     name_person VARCHAR(30),
-    date_of_day DATE,
-    
-	
+    date_of_day DATE
 );
 
 -- area do conhecimento
 CREATE TABLE knowledgeArea (
 	cod_knowledgeArea INT PRIMARY KEY AUTO_INCREMENT,
     description_knowledgeArea INT 
-    
 );
 
 -- COM FK ---------------------
