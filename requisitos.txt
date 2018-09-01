@@ -1,0 +1,18 @@
+Objetivo: criar uma aplicação onde o usuário possa adicionar livros, registrar como seu em sua biblioteca particular.
+
+Registros:
+
+1) poder registrar livros
+2) adicionar os livros da biblioteca pessoal
+3) permitir cadastro de usuário
+4) permitir login de usuário
+5) excluir os livros da biblitoca pessoal
+
+MER:
+1) livros
+2) exemplar
+3) autor 
+4) editora
+5) pessoa
+6) usuário
+7
