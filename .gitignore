@@ -1,11 +1,10 @@
 # IDEA Ignores #
-################
 *.iml
-*.ipr
-*.iws
+*.xml
 .idea/
-out/
-local.properties
+idea/
+*.md
+
 # IDEA Adriano#
 .vscode/
 venv/
