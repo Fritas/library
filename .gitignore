@@ -4,6 +4,7 @@
 .idea/
 idea/
 *.md
+*.sqlite
 
 # IDEA Adriano#
 .vscode/
