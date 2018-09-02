@@ -3,7 +3,11 @@
 """
 
 from datetime import datetime
-from . import db
+from . import db, login_manager
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.cod_user
 
 class Book(db.Model):
     __tablename__ = 'book'
@@ -54,6 +58,12 @@ class User(db.Model):
     username_user = db.Column(db.String(15), nullable=False)
     password_user = db.Column(db.String(15), nullable=False)
     email = db.Column(db.String(50), nullable=False)
+
+    def is_active(self):
+        return True
+
+    def get_id(self):
+        return self.cod_user
 
 class Publications(db.Model):
     __tablename__ = 'publications'
