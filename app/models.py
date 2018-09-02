@@ -24,7 +24,7 @@ class Person(db.Model):
     __tablename__ = 'person'
     cod_person = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name_person = db.Column(db.String(30))
-    date_of_day = db.Column(db.DateTime, default=datetime.utcnow)
+    date_of_birth = db.Column(db.DateTime, default=datetime.utcnow)
     author = db.RelationshipProperty('Author', backref='person', lazy=True)
     user = db.RelationshipProperty('User', backref='user', lazy=True)
 
@@ -53,23 +53,26 @@ class User(db.Model):
     )
     username_user = db.Column(db.String(15), nullable=False)
     password_user = db.Column(db.String(15), nullable=False)
+    email = db.Column(db.String(50), nullable=False)
 
 class Publications(db.Model):
     __tablename__ = 'publications'
-    cod_book = db.Column(db.Integer, primary_key=True)
-    cod_publisher = db.Column(db.Integer, primary_key=True)
+    cod_book = db.Column(db.Integer, db.ForeignKey('book.cod_book'), primary_key=True)
+    cod_publisher = db.Column(db.Integer, db.ForeignKey('publisher.cod_publisher'), primary_key=True)
 
 class Authorship(db.Model):
     __tablename__ = 'authorship'
-    cod_book = db.Column(db.Integer, primary_key=True)
-    cod_author = db.Column(db.Integer, primary_key=True)
+    cod_book = db.Column(db.Integer, db.ForeignKey('book.cod_book'), primary_key=True)
+    cod_author = db.Column(db.Integer, db.ForeignKey('author.cod_author'), primary_key=True)
 
 class AssociatedCategory(db.Model):
     __tablename__ = 'associatedcategory'
-    cod_book = db.Column(db.Integer, primary_key=True)
-    cod_category = db.Column(db.Integer, primary_key=True)
+    cod_book = db.Column(db.Integer, db.ForeignKey('book.cod_book'), primary_key=True)
+    cod_category = db.Column(db.Integer, db.ForeignKey('category.cod_category'), primary_key=True)
 
 class MyBooks(db.Model):
     __tablename__ = 'mybooks'
-    cod_book = db.Column(db.Integer, primary_key=True)
-    cod_user = db.Column(db.Integer, primary_key=True)
+    cod_book = db.Column(db.Integer, db.ForeignKey('book.cod_book'), primary_key=True)
+    cod_user = db.Column(db.Integer, db.ForeignKey('user.cod_user'), primary_key=True)
+    repository = db.Column(db.String(20))
+    dateOfAcquisition = db.Column(db.DateTime, default=datetime.utcnow)
