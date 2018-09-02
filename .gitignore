@@ -5,6 +5,8 @@
 idea/
 *.md
 *.sqlite
+*.pyc
+__pycache__/
 
 # IDEA Adriano#
 .vscode/
